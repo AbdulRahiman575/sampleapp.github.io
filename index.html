@@ -1,0 +1,21 @@
+<html>
+ <head>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+	<title> Sample Application</title>
+ </head>
+ <body>
+	<input type="button" id="button" value="Click Me" />
+	<input type="button" id="button2" value="Click Me 2" />
+	<script type="text/javascript">
+		var onClick = function() {
+			alert('Hi');
+		};
+
+		$('#button').click(onClick);
+
+		$('#button2').click(function() {
+			alert('Hi');
+		});
+	</script>
+ </body>
+</html>
