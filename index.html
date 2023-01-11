@@ -7,15 +7,20 @@
 	<input type="button" id="button" value="Click Me" />
 	<input type="button" id="button2" value="Click Me 2" />
 	<script type="text/javascript">
-		var onClick = function() {
-			alert('Hi');
-		};
+		
+		(function($, window, document) {
+			
+			var onClick = function() {
+				alert('Hi');
+			};
 
-		$('#button').click(onClick);
+			$('#button').click(onClick);
 
-		$('#button2').click(function() {
-			alert('Hi');
-		});
+			$('#button2').click(function() {
+				alert('Hi');
+			});
+		
+  		}(window.jQuery, window, document));
 	</script>
  </body>
 </html>
