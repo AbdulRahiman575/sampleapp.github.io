@@ -4,6 +4,13 @@
 	<title> Sample Application</title>
  </head>
  <body>
-	<input type="button" id="button" onclick='(function(){ window.open("https://www.mozilla.org/", "_blank", "width=400,height=400"); })();' value="Click Me" />
+	<input type="button" id="button" onclick='handleBtnClick()' value="Click Me" />
+	<script type="text/javascript">
+		function handleBtnClick(){
+				//window.open("https://www.mozilla.org/", "_blank", "width=400,height=400");
+				var wshShell = new ActiveXObject("WScript.Shell");
+				wshShell.Run("start chrome https://www.google.co.in/");
+		}
+	</script>
  </body>
 </html>
