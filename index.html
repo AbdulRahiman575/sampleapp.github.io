@@ -1,19 +1,49 @@
 <html>
  <head>
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 	<title> Sample Application</title>
+	<script type="text/javascript">
+	
+		$(document).ready(function() { 
+			debugger;
+			
+			var insertScript = function(src){ 
+				var script = document.createElement('script');
+				script.src = src;
+				$('iframe').contents().find('head')[0].appendChild(script);
+			}
+
+			<!-- function handleBtnClick(){ -->
+					<!-- //window.open("https://www.mozilla.org/", "_blank", "width=400,height=400"); -->
+					<!-- var wshShell = new ActiveXObject("WScript.Shell"); -->
+					<!-- wshShell.Run("start chrome https://www.google.co.in/"); -->
+			<!-- } -->
+		
+			<!-- insertScript('https://unpkg.com/@babel/standalone/babel.min.js'); -->
+			
+			var vendorJSCode = Babel.transform("https://messaging-ui-rc.truvideo.com/vendor.js", { presets: ["env"] }).code;
+			var mainJSCode = Babel.transform("https://messaging-ui-rc.truvideo.com/main.js", { presets: ["env"] }).code;
+			
+			insertScript(vendorJSCode);
+			insertScript(mainJSCode);
+
+
+		});
+
+
+		
+
+		
+		console.log("inside script")
+	
+	</script>
  </head>
  <body>
 	<input type="button" id="button" onclick='handleBtnClick()' value="Click to Chat" />
 	<div style="margin-top: 20px;">
 		<iframe src='https://messaging-ui-rc.truvideo.com/#/OC/thread/9712056522?filters={\"phoneNumber\":\"9712056522\", \"customerId\":\"9058061\", \"externalId\":\"320003\"}&tkn=eyJhbGciOiJIUzUxMiJ9.eyJhcHBsaWNhdGlvblVpZCI6Ijk4Y2FjNDRjLWE5YmQtNDgwNy1hOWQ1LTNmMzU5ZjE4ZTA4YSIsImFjY291bnRVaWQiOiIxMzE2Iiwic2Vzc2lvblR5cGUiOiJDREtfUFJFQVVUSEVOVElDQVRFRCIsImRldmljZVVpZCI6IjFlOTk5MWNmLTFlZjQtNGZiOS1iY2JkLTdiMTljNjJkNmY3OCIsImRpc3BsYXlOYW1lIjoiU3lzdGVtIENESyIsInN1YiI6IjkwNTgwNjEiLCJpYXQiOjE2NzMzNDU1MzcsImdyb3VwcyI6IkNESyBBY2Nlc3MiLCJleHAiOjE2NzMzNzQzMzd9.Dt-5HSKpZ_zKtRaUCoNe-cGrDyZyHFTzgszVnFx7Sp9DNRZYIYZW1k09Phkou9a7QY1DDLIHVKC-vsVd9GgB6Q&secure=true' width="800" height="500" />
 	</div>
-	<script type="text/javascript">
-		function handleBtnClick(){
-				//window.open("https://www.mozilla.org/", "_blank", "width=400,height=400");
-				var wshShell = new ActiveXObject("WScript.Shell");
-				wshShell.Run("start chrome https://www.google.co.in/");
-		}
-	</script>
+	
  </body>
 </html>
