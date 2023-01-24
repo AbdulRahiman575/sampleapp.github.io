@@ -6,28 +6,19 @@
 	<title> Sample Application</title>
 	<script type="text/javascript">
 	
-		$(document).ready(async function() { 
-		
-			function handleBtnClick(){ 
+		function handleBtnClick(){ 
 					
-					  var day = new Date();
-					  var id = day.getTime();
+				  var day = new Date();
+				  var id = day.getTime();
 
-					  window.external.NextNewWindow(id.toString(), false, "external", "", 0, 0, "float", false, false, 0, 0, 0, 0, true, false, true);
-					  window.external.NextNewWindowExternalBrowser("Chrome");
-					  var child = window.open(URL);
-					  child.moveTo(580,240);
-					  child.resizeTo(800,600)
-			}
-		
-
-		});
+				  window.external.NextNewWindow(id.toString(), false, "external", "", 0, 0, "float", false, false, 0, 0, 0, 0, true, false, true);
+				  window.external.NextNewWindowExternalBrowser("Chrome");
+				  var child = window.open("https://www.youtube.com");
+				  child.moveTo(580,240);
+				  child.resizeTo(800,600);
+		}
 
 
-		
-
-		
-		console.log("inside script")
 	
 	</script>
  </head>
